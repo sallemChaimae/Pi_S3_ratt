@@ -1,0 +1,40 @@
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+.navbar {
+  background-color: #1a237e; /* Couleur de fond de la barre de navigation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.navbar-brand {
+  color: #fff; /* Couleur du texte */
+  font-size: 24px; /* Taille de la police */
+  font-weight: bold; /* Poids de la police */
+}
+
+.navbar-toggler-icon {
+  background-color: #fff; /* Couleur de l'icône du bouton de bascule */
+}
+
+.navbar-nav .nav-link {
+  color: #fff; /* Couleur du texte */
+  font-size: 18px; /* Taille de la police */
+  transition: color 0.3s ease; /* Transition fluide */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f39c12; /* Couleur du texte au survol */
+}
+.user-icon {
+  display: inline-block;
+  width: 40px; /* Taille du cercle */
+  height: 40px; /* Taille du cercle */
+  border-radius: 50%; /* Permet de créer un cercle en arrondissant les coins */
+  background-color: #ccc; /* Couleur de fond du cercle */
+  text-align: center;
+  line-height: 40px; /* Centrer l'icône verticalement */
+}
+
+.user-icon i {
+  color: #fff; /* Couleur de l'icône */
+  font-size: 20px; /* Taille de l'icône */
+}
+

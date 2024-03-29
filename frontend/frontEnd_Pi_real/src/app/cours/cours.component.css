@@ -1,0 +1,25 @@
+.cours-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  app-cours-item {
+    width: calc(33% - 1px); 
+    margin-bottom: 0px;
+    /* box-sizing: border-box;
+    height: 500px;
+    overflow: hidden; */
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+  
+ 
+  
+  app-cours-item:nth-child(3n) {
+    margin-right: 0;
+  }

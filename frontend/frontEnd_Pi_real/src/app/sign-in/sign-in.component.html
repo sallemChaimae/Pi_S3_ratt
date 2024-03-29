@@ -1,0 +1,48 @@
+<div class="containerGlobal" style="background: url('https://pro.etudiant.lefigaro.fr/wp-content/uploads/2022/10/sayna-edtech.jpg') center center/cover no-repeat;">
+  <div class="login-container container">
+  
+    <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="userType">En tant que:</label>
+        <select id="userType" name="userType" [(ngModel)]="userType">
+          <option value="student">Étudiant</option>
+          <option value="teacher">Professeur</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="loginData.userName" required #usernameInput="ngModel">
+        <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)" class="error-message">
+          <span *ngIf="usernameInput.errors">Username is required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <div class="password-input">
+          <input type="{{ passwordVisible ? 'text' : 'password' }}" id="password" name="password" [(ngModel)]="loginData.password" [required]="true" minlength="8" #passwordInput="ngModel">
+          <i class="password-toggle-icon" (click)="togglePasswordVisibility()">
+            <i class="fas" [ngClass]="{ 'fa-eye': !passwordVisible, 'fa-eye-slash': passwordVisible }"></i>
+          </i>
+        </div>
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message">
+          <span *ngIf="passwordInput.errors?.['required']">Password is required</span>
+          <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 8 characters long</span>
+        </div>
+      </div>
+
+      <div class="form-group" *ngIf="userType === 'teacher'">
+        <label for="teacherCode">Code Professeur:</label>
+        <input type="text" id="teacherCode" name="teacherCode" [(ngModel)]="loginData.teacherCode" required #teacherCodeInput="ngModel">
+        <div *ngIf="teacherCodeInput.invalid && (teacherCodeInput.dirty || teacherCodeInput.touched)" class="error-message">
+          <span *ngIf="teacherCodeInput.errors">Teacher code is required</span>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="!loginForm.valid" class="btn-login">Login</button>
+      <h2>{{ this.successMessage }}</h2>
+      <h2>{{ this.errorMessage }}</h2>
+    </form>
+  </div>
+</div>

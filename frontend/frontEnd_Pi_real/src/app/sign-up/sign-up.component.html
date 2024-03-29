@@ -1,0 +1,43 @@
+<div class="containerGlobal" style="background: url('https://pro.etudiant.lefigaro.fr/wp-content/uploads/2022/10/sayna-edtech.jpg') center center/cover no-repeat;">
+  <div class="login-container container">
+    <h2> Compte Etudiant</h2>
+    <form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="user.userName" required #usernameInput="ngModel">
+        <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)" class="error-message">
+          <span *ngIf="usernameInput.errors">Username is required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="user.email" required #emailInput="ngModel">
+        <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error-message">
+          <span *ngIf="emailInput.errors">Email is required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <div class="password-input">
+          <input type="{{ passwordVisible ? 'text' : 'password' }}" id="password" name="password" [(ngModel)]="user.password" [required]="true" minlength="8" #passwordInput="ngModel">
+          <i class="password-toggle-icon" (click)="togglePasswordVisibility()">
+            <i class="fas" [ngClass]="{ 'fa-eye': !passwordVisible, 'fa-eye-slash': passwordVisible }"></i> <!-- Ajout de l'icône ici -->
+          </i>
+        </div>
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message">
+          <span *ngIf="passwordInput.errors?.['required']">Password is required</span>
+          <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 8 characters long</span>
+        </div>
+      </div>
+      
+     
+      
+
+      <button type="submit" [disabled]="!registrationForm.valid" class="btn-login">Créer un Compte</button>
+      <h2>{{ successMessage }}</h2>
+      <h2>{{ errorMessage }}</h2>
+    </form>
+  </div>
+</div>

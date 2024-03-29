@@ -1,0 +1,14 @@
+<div class="petit_mot">
+    Explorez un univers infini de connaissances avec notre vaste collection de cours d'apprentissage. Découvrez les dernières leçons, parcourez les fondamentaux intemporels et plongez dans une aventure d'apprentissage captivante.
+  </div>
+  <app-search-bar-quiz (searchEvent)="handleSearchResults($event)"></app-search-bar-quiz>
+  
+  
+  <div class="movie-container">
+    <app-quiz-item *ngFor ="let  quiz of searchResults"
+                   [quiz]="quiz" > </app-quiz-item>
+  </div>
+  <div class="movie-container">
+    <app-quiz-item *ngFor ="let  quiz of quizes"
+                   [quiz]="quiz" > </app-quiz-item>
+  </div>

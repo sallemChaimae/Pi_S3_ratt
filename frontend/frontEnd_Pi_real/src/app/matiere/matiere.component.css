@@ -1,0 +1,31 @@
+.matiere {
+    height: 100vh; /* Pour couvrir toute la hauteur de la fenêtre */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .container {
+    text-align: center; /* Pour centrer horizontalement le contenu */
+    display: flex;
+  }
+  
+  .quiz, .cours {
+    flex: 1; /* Pour occuper une part égale de l'espace disponible */
+    margin: 0 10px; /* Pour ajouter un espacement entre les deux conteneurs */
+    background-color:aliceblue;
+  }
+  
+  .quiz h1, .cours h1 {
+    margin-top: 0; /* Pour supprimer la marge supérieure des titres */
+  }
+  
+  .quiz img, .cours img {
+    display: block; /* Pour éviter l'espace supplémentaire en dessous des images */
+    margin: 0 auto; /* Pour centrer horizontalement les images */
+  }
+  .m{
+    background-color: #eff6ff;
+  }
+  

@@ -1,0 +1,17 @@
+<section class="course">
+  <div class="container">
+    <h1 class="text-center">Toutes les matières</h1>
+
+    <div class="row mt-5">
+      <div class="col-lg-3 mb-5" *ngFor="let cs of matieres">
+        <div class="box shadow-sm">
+          <img src="{{ cs.image }}" width="220" height="200" />
+          <h4 class="mt-2">{{ cs.name }}</h4>
+          <p class="mt-2">{{ cs.description }}</p>
+          <button [routerLink]="['/matiere', cs.name]" class="btn btn-primary btn-sm mt-2">Plus</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
